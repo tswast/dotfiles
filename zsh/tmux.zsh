@@ -14,12 +14,9 @@
 
 alias lt='tmux list-sessions'
 
-# Predictable SSH authentication socket location.
-# http://unix.stackexchange.com/a/76256/11193
-SOCK="/tmp/ssh-agent-$USER-tmux"
-if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
-then
-    rm -f /tmp/ssh-agent-$USER-tmux
-    ln -sf $SSH_AUTH_SOCK $SOCK
-    export SSH_AUTH_SOCK=$SOCK
+# Make a symlink to keep ssh-agent in a tmux session.
+# http://superuser.com/a/424588/125262
+if [[ -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" ]]; then
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock;
 fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock;
