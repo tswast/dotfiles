@@ -37,7 +37,7 @@ ln -s "${HOME}/src/dotfiles/vim/bundle" ~/.vim/bundle
 Add new plugins to the `vim/bundle` directory using submodules.
 
 ```
-cd ~/dotfiles/vim/bundle
+cd ~/src/dotfiles/vim/bundle
 git submodule add https://github.com/tpope/vim-sensible.git
 ```
 
