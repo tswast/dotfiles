@@ -13,5 +13,6 @@ Then install the customizations.
 
 ```
 ln -s $(pwd)/tmux.zsh $ZSH_CUSTOM/tmux.zsh
+ln -s $(pwd)/vimode.zsh $ZSH_CUSTOM/vimode.zsh
 ```
 
